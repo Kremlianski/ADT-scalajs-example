@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>The Scala.js Tutorial</title>
+</head>
+<body>
+<!-- Include Scala.js compiled code -->
+<script type="text/javascript" src="./target/scala-2.12/adt-scalajs-example-fastopt.js"></script>
+<script>
+
+    var sell = {tipe: 'sell', name: 'A', amount: 10, price: 10};
+
+    console.log(AppState.process(sell));
+    console.log(AppState.cash());
+    console.log(AppState.assetAmount('A'));
+    console.log(AppState.countAssets());
+    console.log(AppState.countTransactions());
+    console.log(AppState.undo());
+
+    var buy = {tipe: 'buy', name: 'A', amount: 1000, price: 100};
+    console.log(AppState.process(buy));
+    console.log(AppState.undo());
+
+    var buy1 = {tipe: 'buy', name: 'A', amount: 100, price: 10};
+    var buy2 = {tipe: 'buy', name: 'B', amount: 100, price: 5};
+    var sell1 = {tipe: 'sell', name: 'A', amount: 10, price: 10};
+
+    console.log(AppState.process(buy1));
+    console.log(AppState.process(buy2));
+    console.log(AppState.process(sell1));
+
+    console.log(AppState.assetAmount('A'));
+    console.log(AppState.cash());
+    console.log(AppState.countTransactions());
+    console.log(AppState.undo());
+    console.log(AppState.countTransactions());
+    console.log(AppState.assetAmount('A'));
+    console.log(AppState.cash());
+    console.log(AppState.undo());
+    console.log(AppState.assetAmount('A'));
+    console.log(AppState.assetAmount('B'));
+    console.log(AppState.cash());
+    console.log(AppState.countTransactions());
+
+
+
+</script>
+</body>
+</html>
