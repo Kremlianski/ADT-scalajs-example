@@ -3,7 +3,6 @@ package ru.exxo.adtexample
 import org.scalatest._
 
 import MessageImplicits._
-//import Response._
 
 
 class MessageSpec extends FreeSpec {
@@ -38,7 +37,7 @@ class MessageSpec extends FreeSpec {
     assert(testAutoConversion1(NotEnoughAsset) == "Not enough asset")
   }
 
-  "all methods on the State must work" in {
+  " all methods on the State must work" in {
 
     val sell = SellJs("A", 10, 10)
 
