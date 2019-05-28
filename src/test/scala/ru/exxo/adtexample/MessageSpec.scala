@@ -16,20 +16,20 @@ class MessageSpec extends FreeSpec {
 
   def testAutoConversion1(str: String): String = str
 
-  " blah- blah -blah " in {
+  " A Method convert of classes implemented from the Message trait must work two-ways " in {
 
 
     assert(message.convert().convert == message)
 
   }
 
-  " blah- blah " in {
+  " A Method convert of case objects implemented from the Response trait must work one-way " in {
     assert(Ok.convert() == "OK")
     assert(NotEnoughMoney.convert() == "Not enough money")
     assert(NotEnoughAsset.convert() == "Not enough asset")
   }
 
-  " blah " in {
+  " auto-conversion must works as well " in {
     assert(testAutoConversion(Ok) == "OK")
     assert(testAutoConversion1(Ok) == "OK")
     assert(testAutoConversion(NotEnoughMoney) == "Not enough money")
@@ -38,7 +38,7 @@ class MessageSpec extends FreeSpec {
     assert(testAutoConversion1(NotEnoughAsset) == "Not enough asset")
   }
 
-  "lalala" in {
+  "all methods on the State must work" in {
 
     val sell = SellJs("A", 10, 10)
 
